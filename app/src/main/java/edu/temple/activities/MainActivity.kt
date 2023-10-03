@@ -10,6 +10,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
+const val FONT = "font"
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             // TODO Step2: Implement lambda body to launch new activity and pass value
             adapter = TextSizeAdapter(textSizes){ font: Int ->
                 val launchIntent = Intent(this@MainActivity, DisplayActivity::class.java)
-                launchIntent.putExtra("font", font.toFloat())
+                launchIntent.putExtra(FONT, font.toFloat())
                 startActivity(launchIntent)
             }
             layoutManager = LinearLayoutManager(this@MainActivity)
